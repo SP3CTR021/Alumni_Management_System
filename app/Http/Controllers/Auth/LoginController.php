@@ -26,18 +26,23 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'email'    => 'required|email',
-            'password' => 'required',
-            'login_role' => 'nullable|in:admin,alumni',
+            'email'     => 'required|email',
+            'password'  => 'required',
+            'login_role'=> 'required|in:admin,alumni',
         ]);
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $user = Auth::user();
-            $loginRole = $request->input('login_role');
+            $loginRole = $request->input('login_role', 'alumni');
 
             if ($loginRole === 'admin' && $user->role !== 'admin') {
                 Auth::logout();
                 return back()->withErrors(['email' => 'This login page is for administrators only.']);
+            }
+
+            if ($loginRole === 'alumni' && $user->role === 'admin') {
+                Auth::logout();
+                return back()->withErrors(['email' => 'Administrator accounts must sign in through the admin login page.']);
             }
 
             // Check alumni-specific status

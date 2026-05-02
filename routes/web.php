@@ -14,7 +14,6 @@ use App\Http\Controllers\Admin\AlumniController;
 use App\Http\Controllers\Admin\EventController as AdminEventController;
 use App\Http\Controllers\Admin\AnnouncementController as AdminAnnouncementController;
 use App\Http\Controllers\Admin\ReportController;
-use App\Http\Controllers\Admin\ImportController as AdminImportController;
 
 // ── GUEST ROUTES ──────────────────────────────────
 Route::get('/', fn() => redirect()->route('login'));
@@ -49,8 +48,6 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     Route::resource('events', AdminEventController::class);
     Route::resource('announcements', AdminAnnouncementController::class);
     Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
-    Route::get('/import', [AdminImportController::class, 'index'])->name('import.index');
-    Route::post('/import/trigger', [AdminImportController::class, 'trigger'])->name('import.trigger');
     Route::get('/activations', [\App\Http\Controllers\Admin\ActivationController::class, 'index'])->name('activations.index');
     Route::get('/activations/{profile}', [\App\Http\Controllers\Admin\ActivationController::class, 'show'])->name('activations.show');
     Route::post('/activations/{profile}/approve', [\App\Http\Controllers\Admin\ActivationController::class, 'approve'])->name('activations.approve');

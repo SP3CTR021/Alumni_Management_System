@@ -2,7 +2,7 @@
     <div class="page-header d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between mb-4">
         <div>
             <h1 class="h3 mb-1">Admin Dashboard</h1>
-            <p class="text-muted mb-0">Monitor alumni activity, import status, and recent updates all in one place.</p>
+            <p class="text-muted mb-0">Monitor alumni activity and recent updates all in one place.</p>
         </div>
     </div>
 
@@ -31,22 +31,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-sm-6">
-            <div class="card card-surface h-100 shadow-sm">
-                <div class="card-body text-center">
-                    <span class="d-block text-muted mb-2">Latest Import</span>
-                    @if($latestBatch)
-                        <h2 class="display-6 mb-0 {{ $latestBatch->status === 'pending' ? 'text-warning' : 'text-success' }}">
-                            {{ ucfirst($latestBatch->status) }}
-                        </h2>
-                        <small class="text-muted">Batch {{ $latestBatch->batch_year }}</small>
-                    @else
-                        <h2 class="display-6 text-muted mb-0">—</h2>
-                        <small class="text-muted">No imports yet</small>
-                    @endif
-                </div>
-            </div>
-        </div>
+
     </div>
 
     <div class="row g-4 mb-4">
@@ -63,19 +48,7 @@
             </div>
         </div>
 
-        <div class="col-lg-6">
-            <div class="card card-surface shadow-sm">
-                <div class="card-body">
-                    <h5 class="mb-2">Import Controls</h5>
-                    <p class="text-muted small mb-3">Run a new import scan to detect this year's graduates.</p>
-                    <form action="{{ route('admin.import.trigger') }}" method="POST" class="d-inline"
-                          onsubmit="return confirm('Run import scan now?')">
-                        @csrf
-                        <button class="btn btn-sm btn-primary">Run Import Scan</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+
     </div>
 
     <div class="row g-4">
@@ -138,7 +111,6 @@
                     <h5 class="mb-2">Admin Actions</h5>
                     <div class="d-flex flex-wrap gap-2">
                         <a href="{{ route('admin.activations.index') }}" class="btn btn-sm btn-outline-secondary">Manage Activations</a>
-                        <a href="{{ route('admin.import.index') }}" class="btn btn-sm btn-outline-secondary">View Import History</a>
                     </div>
                 </div>
             </div>

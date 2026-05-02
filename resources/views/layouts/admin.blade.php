@@ -41,9 +41,6 @@
                     <a class="sidebar-item {{ request()->routeIs('admin.events.*') ? 'active' : '' }}" href="{{ route('admin.events.index') }}">Events</a>
                     <a class="sidebar-item {{ request()->routeIs('admin.announcements.*') ? 'active' : '' }}" href="{{ route('admin.announcements.index') }}">Announcements</a>
                     <a class="sidebar-item {{ request()->routeIs('admin.reports.*') ? 'active' : '' }}" href="{{ route('admin.reports.index') }}">Reports</a>
-                    <a class="sidebar-item {{ request()->routeIs('admin.import.*') ? 'active' : '' }}" href="{{ route('admin.import.index') }}">Import</a>
-                @else
-                    <a class="sidebar-item {{ request()->routeIs('registrar.import.*') ? 'active' : '' }}" href="{{ route('registrar.import.index') }}">Import Review</a>
                 @endif
             </div>
 

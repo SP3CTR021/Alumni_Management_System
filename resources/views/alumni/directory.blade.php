@@ -156,15 +156,39 @@
             color: #9b8c79;
         }
 
+        .directory-select {
+            position: relative;
+        }
+
         .directory-select select {
             width: 100%;
             border: 1px solid #d8ceb9;
-            border-radius: 12px;
+            border-radius: 999px;
             padding: 0.95rem 1rem;
             background: #fff;
             color: #3b2f23;
             font-size: 0.98rem;
             appearance: none;
+            cursor: pointer;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .directory-select select:hover,
+        .directory-select select:focus {
+            border-color: #b69f87;
+            box-shadow: 0 0 0 3px rgba(182, 159, 135, 0.12);
+            outline: none;
+        }
+
+        .directory-select::after {
+            content: '\25BC';
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #8a6f4d;
+            pointer-events: none;
+            font-size: 0.65rem;
         }
 
         .directory-card {

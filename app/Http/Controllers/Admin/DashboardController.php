@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Event;
 use App\Models\Announcement;
-use App\Models\ImportBatch;
 use App\Models\AlumniProfile;
 
 class DashboardController extends Controller
@@ -16,7 +15,6 @@ class DashboardController extends Controller
         $totalAlumni     = User::where('role', 'alumni')->count();
         $totalEvents     = Event::where('status', 'published')->count();
         $totalAnnouncements = Announcement::where('status', 'published')->count();
-        $latestBatch     = ImportBatch::latest()->first();
         $pendingActivations = AlumniProfile::where('status', 'pending')->count();
         $recentPendingActivations = AlumniProfile::with('user')
             ->where('status', 'pending')
@@ -28,7 +26,6 @@ class DashboardController extends Controller
             'totalAlumni',
             'totalEvents',
             'totalAnnouncements',
-            'latestBatch',
             'pendingActivations',
             'recentPendingActivations'
         ));
