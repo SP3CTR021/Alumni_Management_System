@@ -11,10 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('import_records', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        // Intentionally left blank - see 2026_04_20_120424_create_import_records_table.php for the actual schema
     }
 
     /**

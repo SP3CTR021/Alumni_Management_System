@@ -84,14 +84,18 @@
             color: rgba(253,250,246,0.45);
         }
         .alumni-signout {
-            border: 0;
-            background: transparent;
-            color: rgba(253,250,246,0.92);
-            padding: 0;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            background: rgba(201, 168, 76, 0.14);
+            color: #fdfaf6;
+            padding: 0.55rem 1rem;
+            border-radius: 999px;
             font-family: var(--font-ui);
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
         }
         .alumni-signout:hover {
-            color: var(--gold);
+            color: #4a0a16;
+            background: #f7edd7;
+            border-color: #c9a84c;
         }
         .alumni-main {
             max-width: 1440px;

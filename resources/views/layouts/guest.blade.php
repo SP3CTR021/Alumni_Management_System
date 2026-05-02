@@ -14,7 +14,6 @@
                 <div class="auth-brand">
                     <div class="brand-mark">A</div>
                     <h1 class="auth-title">Alumni Information System</h1>
-                    <p class="auth-copy">Sign in to access announcements, events, alumni records and your personal profile.</p>
                 </div>
 
                 @if(session('status'))

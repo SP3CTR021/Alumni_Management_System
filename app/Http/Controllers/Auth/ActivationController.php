@@ -23,6 +23,7 @@ class ActivationController extends Controller
             'batch_year'            => 'required|integer|min:1900|max:' . date('Y'),
             'course'                => 'required|string|max:255',
             'password'              => 'required|min:8|confirmed',
+            'terms'                 => 'required|accepted',
         ]);
 
      
