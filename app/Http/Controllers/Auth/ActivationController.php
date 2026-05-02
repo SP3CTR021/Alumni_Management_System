@@ -20,13 +20,13 @@ class ActivationController extends Controller
         $request->validate([
             'email'                 => 'required|email|unique:users',
             'name'                  => 'required|string|max:255',
+            'student_id'            => 'required|string|max:50',
             'batch_year'            => 'required|integer|min:1900|max:' . date('Y'),
             'course'                => 'required|string|max:255',
             'password'              => 'required|min:8|confirmed',
             'terms'                 => 'required|accepted',
         ]);
 
-     
         $user = User::create([
             'name'     => $request->name,
             'email'    => $request->email,
@@ -37,6 +37,7 @@ class ActivationController extends Controller
 
         AlumniProfile::create([
             'user_id'      => $user->id,
+            'student_id'   => $request->student_id,
             'batch_year'   => $request->batch_year,
             'course'       => $request->course,
             'status'       => 'pending',

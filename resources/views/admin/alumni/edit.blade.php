@@ -3,7 +3,7 @@
 
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('admin.alumni.update', $alumni) }}" method="POST">
+            <form action="{{ route('admin.alumni.update', $alumnus) }}" method="POST">
                 @csrf
                 @method('PUT')
 
@@ -12,14 +12,14 @@
                         <label class="form-label">Full Name</label>
                         <input type="text" name="name"
                                class="form-control @error('name') is-invalid @enderror"
-                               value="{{ old('name', $alumni->name) }}">
+                               value="{{ old('name', $alumnus->name) }}">
                         @error('name') <div class="invalid-feedback">{{ $message }}</div> @enderror
                     </div>
                     <div class="col-md-6 mb-3">
                         <label class="form-label">Email</label>
                         <input type="email" name="email"
                                class="form-control @error('email') is-invalid @enderror"
-                               value="{{ old('email', $alumni->email) }}">
+                               value="{{ old('email', $alumnus->email) }}">
                         @error('email') <div class="invalid-feedback">{{ $message }}</div> @enderror
                     </div>
                     <div class="col-md-6 mb-3">
@@ -38,15 +38,10 @@
                                value="{{ old('batch_year', $profile?->batch_year) }}">
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label class="form-label">Department</label>
-                        <input type="text" name="department" class="form-control"
-                               value="{{ old('department', $profile?->department) }}">
-                    </div>
-                    <div class="col-md-6 mb-3">
                         <label class="form-label">Account Status</label>
                         <select name="status" class="form-select">
                             @foreach(['active','dormant','flagged'] as $s)
-                                <option value="{{ $s }}" {{ old('status', $alumni->status) === $s ? 'selected' : '' }}>
+                                <option value="{{ $s }}" {{ old('status', $alumnus->status) === $s ? 'selected' : '' }}>
                                     {{ ucfirst($s) }}
                                 </option>
                             @endforeach

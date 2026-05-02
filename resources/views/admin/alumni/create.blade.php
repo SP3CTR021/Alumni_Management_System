@@ -33,10 +33,6 @@
                         <label class="form-label">Batch Year</label>
                         <input type="text" name="batch_year" class="form-control" value="{{ old('batch_year') }}">
                     </div>
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Department</label>
-                        <input type="text" name="department" class="form-control" value="{{ old('department') }}">
-                    </div>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Save</button>

@@ -28,7 +28,6 @@ class AlumniController extends Controller
             'email'      => 'required|email|unique:users,email',
             'course'     => 'nullable|string|max:100',
             'batch_year' => 'nullable|string|max:10',
-            'department' => 'nullable|string|max:100',
             'student_id' => 'nullable|string|max:50',
         ]);
 
@@ -45,52 +44,49 @@ class AlumniController extends Controller
             'student_id' => $request->student_id,
             'course'     => $request->course,
             'batch_year' => $request->batch_year,
-            'department' => $request->department,
         ]);
 
         return redirect()->route('admin.alumni.index')->with('success', 'Alumni added successfully.');
     }
 
-    public function edit(User $alumni)
+    public function edit(User $alumnus)
     {
-        $profile = $alumni->alumniProfile;
-        return view('admin.alumni.edit', compact('alumni', 'profile'));
+        $profile = $alumnus->alumniProfile;
+        return view('admin.alumni.edit', compact('alumnus', 'profile'));
     }
 
-    public function update(Request $request, User $alumni)
+    public function update(Request $request, User $alumnus)
     {
         $request->validate([
             'name'       => 'required|string|max:255',
-            'email'      => 'required|email|unique:users,email,' . $alumni->id,
+            'email'      => 'required|email|unique:users,email,' . $alumnus->id,
             'course'     => 'nullable|string|max:100',
             'batch_year' => 'nullable|string|max:10',
-            'department' => 'nullable|string|max:100',
             'student_id' => 'nullable|string|max:50',
             'status'     => 'required|in:active,dormant,flagged',
         ]);
 
-        $alumni->update([
+        $alumnus->update([
             'name'   => $request->name,
             'email'  => $request->email,
             'status' => $request->status,
         ]);
 
-        $alumni->alumniProfile()->updateOrCreate(
-            ['user_id' => $alumni->id],
+        $alumnus->alumniProfile()->updateOrCreate(
+            ['user_id' => $alumnus->id],
             [
                 'student_id' => $request->student_id,
                 'course'     => $request->course,
                 'batch_year' => $request->batch_year,
-                'department' => $request->department,
             ]
         );
 
         return redirect()->route('admin.alumni.index')->with('success', 'Alumni updated successfully.');
     }
 
-    public function destroy(User $alumni)
+    public function destroy(User $alumnus)
     {
-        $alumni->delete();
+        $alumnus->delete();
         return redirect()->route('admin.alumni.index')->with('success', 'Alumni deleted successfully.');
     }
 }

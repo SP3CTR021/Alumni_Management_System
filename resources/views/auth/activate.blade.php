@@ -278,28 +278,38 @@
                                class="@error('course') is-invalid @enderror"
                                required>
                             <option value="">Select your program</option>
-                            <option value="Bachelor of Science in Civil Engineering">Bachelor of Science in Civil Engineering</option>
-                            <option value="Bachelor of Science in Mechanical Engineering">Bachelor of Science in Mechanical Engineering</option>
-                            <option value="Bachelor of Science in Electrical Engineering">Bachelor of Science in Electrical Engineering</option>
-                            <option value="Bachelor of Science in Electronics Engineering">Bachelor of Science in Electronics Engineering</option>
-                            <option value="Bachelor of Science in Computer Engineering">Bachelor of Science in Computer Engineering</option>
-                            <option value="Bachelor of Science in Computer Science">Bachelor of Science in Computer Science</option>
-                            <option value="Bachelor of Science in Information Technology">Bachelor of Science in Information Technology</option>
-                            <option value="Bachelor of Science in Software Engineering">Bachelor of Science in Software Engineering</option>
-                            <option value="Bachelor of Science in Accountancy">Bachelor of Science in Accountancy</option>
-                            <option value="Bachelor of Science in Business Administration">Bachelor of Science in Business Administration</option>
-                            <option value="Bachelor of Science in Entrepreneurship">Bachelor of Science in Entrepreneurship</option>
-                            <option value="Bachelor of Science in Financial Management">Bachelor of Science in Financial Management</option>
-                            <option value="Bachelor of Science in Marketing Management">Bachelor of Science in Marketing Management</option>
-                            <option value="Bachelor of Science in Human Resource Management">Bachelor of Science in Human Resource Management</option>
-                            <option value="Bachelor of Science in Nursing">Bachelor of Science in Nursing</option>
-                            <option value="Doctor of Medicine">Doctor of Medicine</option>
-                            <option value="Bachelor of Science in Pharmacy">Bachelor of Science in Pharmacy</option>
-                            <option value="Bachelor of Science in Medical Technology">Bachelor of Science in Medical Technology</option>
-                            <option value="Bachelor of Science in Physical Therapy">Bachelor of Science in Physical Therapy</option>
-                            <option value="Doctor of Dental Medicine">Doctor of Dental Medicine</option>
+                            <option value="Bachelor of Science in Civil Engineering" {{ old('course') == 'Bachelor of Science in Civil Engineering' ? 'selected' : '' }}>Bachelor of Science in Civil Engineering</option>
+                            <option value="Bachelor of Science in Mechanical Engineering" {{ old('course') == 'Bachelor of Science in Mechanical Engineering' ? 'selected' : '' }}>Bachelor of Science in Mechanical Engineering</option>
+                            <option value="Bachelor of Science in Electrical Engineering" {{ old('course') == 'Bachelor of Science in Electrical Engineering' ? 'selected' : '' }}>Bachelor of Science in Electrical Engineering</option>
+                            <option value="Bachelor of Science in Electronics Engineering" {{ old('course') == 'Bachelor of Science in Electronics Engineering' ? 'selected' : '' }}>Bachelor of Science in Electronics Engineering</option>
+                            <option value="Bachelor of Science in Computer Engineering" {{ old('course') == 'Bachelor of Science in Computer Engineering' ? 'selected' : '' }}>Bachelor of Science in Computer Engineering</option>
+                            <option value="Bachelor of Science in Computer Science" {{ old('course') == 'Bachelor of Science in Computer Science' ? 'selected' : '' }}>Bachelor of Science in Computer Science</option>
+                            <option value="Bachelor of Science in Information Technology" {{ old('course') == 'Bachelor of Science in Information Technology' ? 'selected' : '' }}>Bachelor of Science in Information Technology</option>
+                            <option value="Bachelor of Science in Software Engineering" {{ old('course') == 'Bachelor of Science in Software Engineering' ? 'selected' : '' }}>Bachelor of Science in Software Engineering</option>
+                            <option value="Bachelor of Science in Accountancy" {{ old('course') == 'Bachelor of Science in Accountancy' ? 'selected' : '' }}>Bachelor of Science in Accountancy</option>
+                            <option value="Bachelor of Science in Business Administration" {{ old('course') == 'Bachelor of Science in Business Administration' ? 'selected' : '' }}>Bachelor of Science in Business Administration</option>
+                            <option value="Bachelor of Science in Entrepreneurship" {{ old('course') == 'Bachelor of Science in Entrepreneurship' ? 'selected' : '' }}>Bachelor of Science in Entrepreneurship</option>
+                            <option value="Bachelor of Science in Financial Management" {{ old('course') == 'Bachelor of Science in Financial Management' ? 'selected' : '' }}>Bachelor of Science in Financial Management</option>
+                            <option value="Bachelor of Science in Marketing Management" {{ old('course') == 'Bachelor of Science in Marketing Management' ? 'selected' : '' }}>Bachelor of Science in Marketing Management</option>
+                            <option value="Bachelor of Science in Human Resource Management" {{ old('course') == 'Bachelor of Science in Human Resource Management' ? 'selected' : '' }}>Bachelor of Science in Human Resource Management</option>
+                            <option value="Bachelor of Science in Nursing" {{ old('course') == 'Bachelor of Science in Nursing' ? 'selected' : '' }}>Bachelor of Science in Nursing</option>
+                            <option value="Doctor of Medicine" {{ old('course') == 'Doctor of Medicine' ? 'selected' : '' }}>Doctor of Medicine</option>
+                            <option value="Bachelor of Science in Pharmacy" {{ old('course') == 'Bachelor of Science in Pharmacy' ? 'selected' : '' }}>Bachelor of Science in Pharmacy</option>
+                            <option value="Bachelor of Science in Medical Technology" {{ old('course') == 'Bachelor of Science in Medical Technology' ? 'selected' : '' }}>Bachelor of Science in Medical Technology</option>
+                            <option value="Bachelor of Science in Physical Therapy" {{ old('course') == 'Bachelor of Science in Physical Therapy' ? 'selected' : '' }}>Bachelor of Science in Physical Therapy</option>
+                            <option value="Doctor of Dental Medicine" {{ old('course') == 'Doctor of Dental Medicine' ? 'selected' : '' }}>Doctor of Dental Medicine</option>
                         </select>
                         @error('course') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="student_id">Student ID</label>
+                        <input type="text" id="student_id" name="student_id"
+                               class="@error('student_id') is-invalid @enderror"
+                               value="{{ old('student_id') }}"
+                               placeholder="Your student ID"
+                               required>
+                        @error('student_id') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                     </div>
 
                     <div class="form-group">
